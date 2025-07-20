@@ -1,0 +1,18 @@
+@{
+    ViewData["Title"] = "Front page";
+}
+
+<h2 class="mb-4">Front page</h2>
+
+<div class="mb-5">
+  <a asp-controller="Vaccines"
+     asp-action="Index"
+     class="btn btn-primary me-2">
+    Vaccine Management
+  </a>
+  <a asp-controller="Home"
+     asp-action="Index"
+     class="btn btn-secondary">
+    Patient Management
+  </a>
+</div>

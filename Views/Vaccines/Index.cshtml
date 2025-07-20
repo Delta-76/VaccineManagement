@@ -1,0 +1,39 @@
+@model IEnumerable<VaccineManagement.Models.Vaccine>
+
+@{
+    ViewData["Title"] = "Vaccine List";
+}
+
+<h2>Vaccine Listing</h2>
+<p>
+  <a asp-action="Create" class="btn btn-success">New Vaccine</a>
+  <a asp-action="NewDoses" class="btn btn-info">New Doses</a>
+</p>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Doses Required</th>
+      <th>Days Between</th>
+      <th>Total Received</th>
+      <th>Total Left</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  @foreach (var v in Model)
+  {
+      <tr>
+        <td>@v.Name</td>
+        <td>@v.DosesRequired</td>
+        <td>@(v.DosesRequired > 1 ? v.DaysBetweenDoses.ToString() : "")</td>
+        <td>@v.TotalDosesReceived</td>
+        <td>@v.TotalDosesLeft</td>
+        <td>
+          <a asp-action="Edit" asp-route-id="@v.Id" class="btn btn-sm btn-primary">Edit</a>
+        </td>
+      </tr>
+  }
+  </tbody>
+</table>
